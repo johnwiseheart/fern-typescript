@@ -43,6 +43,7 @@ const FIXTURES: FixtureInfo[] = [
             timeoutInSeconds: 2,
         },
         targetRuntime: JavaScriptRuntime.NODE,
+        only: true,
     },
     {
         path: "trace",

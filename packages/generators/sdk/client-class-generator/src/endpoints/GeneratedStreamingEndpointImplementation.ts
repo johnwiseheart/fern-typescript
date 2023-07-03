@@ -179,7 +179,7 @@ export class GeneratedStreamingEndpointImplementation implements GeneratedEndpoi
             ...this.request.getFetcherRequestArgs(context),
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
-            timeoutInSeconds: this.timeoutInSeconds,
+            timeoutInSeconds: this.generatedSdkClientClass.getTimeoutExpression(this.timeoutInSeconds),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,
         };
 
