@@ -92,7 +92,6 @@ export class GeneratedDefaultEndpointRequest implements GeneratedEndpointRequest
         //   for now: use _requestOptions instead
         // - Also add these to the fileUploadEndpoint
         //   for now: kind of already did
-
         parameters.push(this.generatedSdkClientClass.getRequestOptionsParameter());
         return parameters;
     }
@@ -125,8 +124,6 @@ export class GeneratedDefaultEndpointRequest implements GeneratedEndpointRequest
             body: this.getSerializedRequestBodyWithNullCheck(context),
             contentType: "application/json",
             onUploadProgress: undefined,
-            // timeoutInSeconds: ts.factory.createNumericLiteral("1000"), // TODO:Fix this
-            // timeoutInSeconds: this.getTimeoutExpression(context),
         };
     }
 

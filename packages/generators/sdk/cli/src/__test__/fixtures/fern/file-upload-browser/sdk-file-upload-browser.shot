@@ -241,12 +241,12 @@ export declare namespace Service {
 export declare class Service {
     protected readonly _options: Service.Options;
     constructor(_options: Service.Options);
-    post(file: File | Blob, maybeFile: File | Blob | undefined, request: FernApi.MyRequest, _requestOptions?: Service.RequestOptions, opts?: {
+    post(file: File | Blob, maybeFile: File | Blob | undefined, request: FernApi.MyRequest, opts?: {
         onUploadProgress: (event: axios.AxiosProgressEvent) => void;
-    }): Promise<void>;
-    justFile(file: File | Blob, _requestOptions?: Service.RequestOptions, opts?: {
+    }, _requestOptions?: Service.RequestOptions): Promise<void>;
+    justFile(file: File | Blob, opts?: {
         onUploadProgress: (event: axios.AxiosProgressEvent) => void;
-    }): Promise<void>;
+    }, _requestOptions?: Service.RequestOptions): Promise<void>;
 }
 ",
                         "name": "Client.d.ts",
@@ -302,7 +302,7 @@ class Service {
     constructor(_options) {
         this._options = _options;
     }
-    post(file, maybeFile, request, _requestOptions, opts) {
+    post(file, maybeFile, request, opts, _requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _request = new form_data_1.default();
             if (request.maybeString != null) {
@@ -393,7 +393,7 @@ class Service {
             }
         });
     }
-    justFile(file, _requestOptions, opts) {
+    justFile(file, opts, _requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _request = new form_data_1.default();
             _request.append(\\"file\\", file);
@@ -4018,10 +4018,10 @@ export class Service {
         file: File | Blob,
         maybeFile: File | Blob | undefined,
         request: FernApi.MyRequest,
-        _requestOptions?: Service.RequestOptions,
         opts?: {
             onUploadProgress: (event: axios.AxiosProgressEvent) => void;
-        }
+        },
+        _requestOptions?: Service.RequestOptions
     ): Promise<void> {
         const _request = new FormData();
         if (request.maybeString != null) {
@@ -4132,10 +4132,10 @@ export class Service {
 
     public async justFile(
         file: File | Blob,
-        _requestOptions?: Service.RequestOptions,
         opts?: {
             onUploadProgress: (event: axios.AxiosProgressEvent) => void;
-        }
+        },
+        _requestOptions?: Service.RequestOptions
     ): Promise<void> {
         const _request = new FormData();
         _request.append(\\"file\\", file);
