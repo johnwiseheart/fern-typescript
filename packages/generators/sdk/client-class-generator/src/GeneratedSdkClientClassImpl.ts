@@ -58,7 +58,7 @@ export declare namespace GeneratedSdkClientClassImpl {
 
 export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
     private static REQUEST_OPTIONS_INTERFACE_NAME = "RequestOptions";
-    private static REQUEST_OPTIONS_PRIVATE_MEMBER = "_requestOptions";
+    private static REQUEST_OPTIONS_PARAMETER_NAME = "_requestOptions";
     private static TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME = "timeoutInSeconds";
     private static OPTIONS_INTERFACE_NAME = "Options";
     private static OPTIONS_PRIVATE_MEMBER = "_options";
@@ -487,7 +487,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
         return ts.factory.createConditionalExpression(
             ts.factory.createBinaryExpression(
                 ts.factory.createPropertyAccessChain(
-                    ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PRIVATE_MEMBER),
+                    ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PARAMETER_NAME),
                     ts.factory.createToken(ts.SyntaxKind.QuestionDotToken),
                     ts.factory.createIdentifier(
                         GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME
@@ -500,7 +500,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
             ts.factory.createParenthesizedExpression(
                 ts.factory.createBinaryExpression(
                     ts.factory.createPropertyAccessExpression(
-                        ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PRIVATE_MEMBER),
+                        ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PARAMETER_NAME),
                         ts.factory.createIdentifier(
                             GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME
                         )
@@ -696,7 +696,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
 
     public getRequestOptionsParameter(): OptionalKind<ParameterDeclarationStructure> {
         return {
-            name: GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PRIVATE_MEMBER,
+            name: GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PARAMETER_NAME,
             type: getTextOfTsNode(
                 ts.factory.createTypeReferenceNode(
                     ts.factory.createQualifiedName(
@@ -707,6 +707,15 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
             ),
             hasQuestionToken: true,
         };
+    }
+
+    public getReferenceToRequestOptions() {
+        return ts.factory.createTypeReferenceNode(
+            ts.factory.createQualifiedName(
+                ts.factory.createIdentifier(this.serviceClassName),
+                ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_INTERFACE_NAME)
+            )
+        );
     }
 
     public getReferenceToOptions(): ts.Expression {

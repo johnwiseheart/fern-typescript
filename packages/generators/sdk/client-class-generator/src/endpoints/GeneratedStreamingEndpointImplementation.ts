@@ -139,6 +139,7 @@ export class GeneratedStreamingEndpointImplementation implements GeneratedEndpoi
                     ])
                 ),
             },
+            this.generatedSdkClientClass.getRequestOptionsParameter(),
         ];
     }
 

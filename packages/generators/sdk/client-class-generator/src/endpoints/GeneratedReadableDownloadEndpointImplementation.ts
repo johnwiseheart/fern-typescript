@@ -64,10 +64,13 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
         }: { requestParameterIntersection?: ts.TypeNode; excludeInitializers?: boolean } = {}
     ): EndpointSignature {
         return {
-            parameters: this.request.getEndpointParameters(context, {
-                requestParameterIntersection,
-                excludeInitializers,
-            }),
+            parameters: [
+                ...this.request.getEndpointParameters(context, {
+                    requestParameterIntersection,
+                    excludeInitializers,
+                }),
+                this.generatedSdkClientClass.getRequestOptionsParameter(),
+            ],
             returnTypeWithoutPromise: this.includeContentHeadersOnResponse
                 ? ts.factory.createTypeLiteralNode([
                       ts.factory.createPropertySignature(

@@ -87,12 +87,6 @@ export class GeneratedDefaultEndpointRequest implements GeneratedEndpointRequest
             );
         }
 
-        // Pseudo TODO:
-        // - class could have dyanmic function to get the name, so its options/_options
-        //   for now: use _requestOptions instead
-        // - Also add these to the fileUploadEndpoint
-        //   for now: kind of already did
-        parameters.push(this.generatedSdkClientClass.getRequestOptionsParameter());
         return parameters;
     }
 

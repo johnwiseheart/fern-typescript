@@ -131,8 +131,6 @@ export class GeneratedFileUploadEndpointRequest implements GeneratedEndpointRequ
             },
         });
 
-        parameters.push(this.generatedSdkClientClass.getRequestOptionsParameter());
-
         return parameters;
     }
 
