@@ -6,6 +6,7 @@ import { GeneratedEndpointRequest } from "../../endpoint-request/GeneratedEndpoi
 import { GeneratedSdkClientClassImpl } from "../../GeneratedSdkClientClassImpl";
 import { EndpointSignature, GeneratedEndpointImplementation } from "../GeneratedEndpointImplementation";
 import { buildUrl } from "../utils/buildUrl";
+import { getRequestOptionsParameter, getTimeoutExpression } from "../utils/requestOptionsParameter";
 import { GeneratedEndpointResponse } from "./endpoint-response/GeneratedEndpointResponse";
 
 export declare namespace GeneratedDefaultEndpointImplementation {
@@ -64,7 +65,9 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
                     requestParameterIntersection,
                     excludeInitializers,
                 }),
-                this.generatedSdkClientClass.getRequestOptionsParameter(),
+                getRequestOptionsParameter({
+                    requestOptionsReference: this.generatedSdkClientClass.getReferenceToRequestOptions(),
+                }),
             ],
             returnTypeWithoutPromise: this.response.getReturnType(context),
         };
@@ -115,7 +118,10 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
             ...this.request.getFetcherRequestArgs(context),
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
-            timeoutInSeconds: this.generatedSdkClientClass.getTimeoutExpression(this.timeoutInSeconds),
+            timeoutInSeconds: getTimeoutExpression(
+                this.timeoutInSeconds,
+                this.generatedSdkClientClass.getReferenceToTimeoutInSeconds()
+            ),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,
         };
 

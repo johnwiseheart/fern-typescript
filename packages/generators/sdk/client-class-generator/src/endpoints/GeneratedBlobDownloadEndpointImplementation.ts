@@ -7,6 +7,7 @@ import { GeneratedSdkClientClassImpl } from "../GeneratedSdkClientClassImpl";
 import { GeneratedEndpointResponse } from "./default/endpoint-response/GeneratedEndpointResponse";
 import { EndpointSignature, GeneratedEndpointImplementation } from "./GeneratedEndpointImplementation";
 import { buildUrl } from "./utils/buildUrl";
+import { getRequestOptionsParameter, getTimeoutExpression } from "./utils/requestOptionsParameter";
 
 export declare namespace GeneratedBlobDownloadEndpointImplementation {
     export interface Init {
@@ -64,7 +65,9 @@ export class GeneratedBlobDownloadEndpointImplementation implements GeneratedEnd
                     requestParameterIntersection,
                     excludeInitializers,
                 }),
-                this.generatedSdkClientClass.getRequestOptionsParameter(),
+                getRequestOptionsParameter({
+                    requestOptionsReference: this.generatedSdkClientClass.getReferenceToRequestOptions(),
+                }),
             ],
             returnTypeWithoutPromise: this.response.getReturnType(context),
         };
@@ -119,7 +122,10 @@ export class GeneratedBlobDownloadEndpointImplementation implements GeneratedEnd
             ...this.request.getFetcherRequestArgs(context),
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
-            timeoutInSeconds: this.generatedSdkClientClass.getTimeoutExpression(this.timeoutInSeconds),
+            timeoutInSeconds: getTimeoutExpression(
+                this.timeoutInSeconds,
+                this.generatedSdkClientClass.getReferenceToTimeoutInSeconds()
+            ),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,
             responseType: "blob",
         };

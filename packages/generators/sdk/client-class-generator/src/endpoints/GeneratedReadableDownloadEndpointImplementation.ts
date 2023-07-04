@@ -6,6 +6,7 @@ import { GeneratedEndpointRequest } from "../endpoint-request/GeneratedEndpointR
 import { GeneratedSdkClientClassImpl } from "../GeneratedSdkClientClassImpl";
 import { EndpointSignature, GeneratedEndpointImplementation } from "./GeneratedEndpointImplementation";
 import { buildUrl } from "./utils/buildUrl";
+import { getRequestOptionsParameter, getTimeoutExpression } from "./utils/requestOptionsParameter";
 
 export declare namespace GeneratedReadableDownloadEndpointImplementation {
     export interface Init {
@@ -69,7 +70,9 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
                     requestParameterIntersection,
                     excludeInitializers,
                 }),
-                this.generatedSdkClientClass.getRequestOptionsParameter(),
+                getRequestOptionsParameter({
+                    requestOptionsReference: this.generatedSdkClientClass.getReferenceToRequestOptions(),
+                }),
             ],
             returnTypeWithoutPromise: this.includeContentHeadersOnResponse
                 ? ts.factory.createTypeLiteralNode([
@@ -130,7 +133,10 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
             ...this.request.getFetcherRequestArgs(context),
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
-            timeoutInSeconds: this.generatedSdkClientClass.getTimeoutExpression(this.timeoutInSeconds),
+            timeoutInSeconds: getTimeoutExpression(
+                this.timeoutInSeconds,
+                this.generatedSdkClientClass.getReferenceToTimeoutInSeconds()
+            ),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,
         };
 

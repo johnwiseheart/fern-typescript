@@ -13,14 +13,7 @@ import {
 } from "@fern-typescript/commons";
 import { GeneratedSdkClientClass, SdkContext } from "@fern-typescript/contexts";
 import { ErrorResolver, PackageResolver } from "@fern-typescript/resolvers";
-import {
-    InterfaceDeclarationStructure,
-    OptionalKind,
-    ParameterDeclarationStructure,
-    PropertySignatureStructure,
-    Scope,
-    ts,
-} from "ts-morph";
+import { InterfaceDeclarationStructure, OptionalKind, PropertySignatureStructure, Scope, ts } from "ts-morph";
 import { GeneratedDefaultEndpointRequest } from "./endpoint-request/GeneratedDefaultEndpointRequest";
 import { GeneratedFileUploadEndpointRequest } from "./endpoint-request/GeneratedFileUploadEndpointRequest";
 import { GeneratedNonThrowingEndpointResponse } from "./endpoints/default/endpoint-response/GeneratedNonThrowingEndpointResponse";
@@ -58,7 +51,6 @@ export declare namespace GeneratedSdkClientClassImpl {
 
 export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
     private static REQUEST_OPTIONS_INTERFACE_NAME = "RequestOptions";
-    private static REQUEST_OPTIONS_PARAMETER_NAME = "_requestOptions";
     private static TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME = "timeoutInSeconds";
     private static OPTIONS_INTERFACE_NAME = "Options";
     private static OPTIONS_PRIVATE_MEMBER = "_options";
@@ -483,40 +475,6 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
      * REQUEST OPTIONS *
      ***********/
 
-    public getTimeoutExpression(timeoutInSeconds: number | "infinity" | undefined): ts.Expression {
-        return ts.factory.createConditionalExpression(
-            ts.factory.createBinaryExpression(
-                ts.factory.createPropertyAccessChain(
-                    ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PARAMETER_NAME),
-                    ts.factory.createToken(ts.SyntaxKind.QuestionDotToken),
-                    ts.factory.createIdentifier(
-                        GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME
-                    )
-                ),
-                ts.factory.createToken(ts.SyntaxKind.ExclamationEqualsEqualsToken),
-                ts.factory.createIdentifier("undefined")
-            ),
-            ts.factory.createToken(ts.SyntaxKind.QuestionToken),
-            ts.factory.createParenthesizedExpression(
-                ts.factory.createBinaryExpression(
-                    ts.factory.createPropertyAccessExpression(
-                        ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PARAMETER_NAME),
-                        ts.factory.createIdentifier(
-                            GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME
-                        )
-                    ),
-                    ts.factory.createToken(ts.SyntaxKind.AsteriskToken),
-                    ts.factory.createNumericLiteral("1000")
-                )
-            ),
-            ts.factory.createToken(ts.SyntaxKind.ColonToken),
-            // If timeoutInSeconds is set to infinity, fall back to undefined if requestOptions.timeoutInSeconds is not set
-            timeoutInSeconds !== "infinity"
-                ? ts.factory.createNumericLiteral(timeoutInSeconds != null ? timeoutInSeconds * 1000 : 60000)
-                : ts.factory.createIdentifier("undefined")
-        );
-    }
-
     private generateRequestOptionsInterface(): OptionalKind<InterfaceDeclarationStructure> {
         return {
             name: GeneratedSdkClientClassImpl.REQUEST_OPTIONS_INTERFACE_NAME,
@@ -694,28 +652,17 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
         );
     }
 
-    public getRequestOptionsParameter(): OptionalKind<ParameterDeclarationStructure> {
-        return {
-            name: GeneratedSdkClientClassImpl.REQUEST_OPTIONS_PARAMETER_NAME,
-            type: getTextOfTsNode(
-                ts.factory.createTypeReferenceNode(
-                    ts.factory.createQualifiedName(
-                        ts.factory.createIdentifier(this.serviceClassName),
-                        ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_INTERFACE_NAME)
-                    )
-                )
-            ),
-            hasQuestionToken: true,
-        };
-    }
-
-    public getReferenceToRequestOptions() {
+    public getReferenceToRequestOptions(): ts.TypeReferenceNode {
         return ts.factory.createTypeReferenceNode(
             ts.factory.createQualifiedName(
                 ts.factory.createIdentifier(this.serviceClassName),
                 ts.factory.createIdentifier(GeneratedSdkClientClassImpl.REQUEST_OPTIONS_INTERFACE_NAME)
             )
         );
+    }
+
+    public getReferenceToTimeoutInSeconds(): ts.Identifier {
+        return ts.factory.createIdentifier(GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME);
     }
 
     public getReferenceToOptions(): ts.Expression {
