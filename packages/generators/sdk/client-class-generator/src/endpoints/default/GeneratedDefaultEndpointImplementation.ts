@@ -118,10 +118,10 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
             ...this.request.getFetcherRequestArgs(context),
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
-            timeoutInSeconds: getTimeoutExpression(
-                this.timeoutInSeconds,
-                this.generatedSdkClientClass.getReferenceToTimeoutInSeconds()
-            ),
+            timeoutInSeconds: getTimeoutExpression({
+                timeoutInSeconds: this.timeoutInSeconds,
+                property: this.generatedSdkClientClass.getReferenceToTimeoutInSeconds(),
+            }),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,
         };
 

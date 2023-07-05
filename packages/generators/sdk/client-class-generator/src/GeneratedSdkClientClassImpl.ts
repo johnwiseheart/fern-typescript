@@ -471,9 +471,9 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
         return headers;
     }
 
-    /***********
+    /*******************
      * REQUEST OPTIONS *
-     ***********/
+     *******************/
 
     private generateRequestOptionsInterface(): OptionalKind<InterfaceDeclarationStructure> {
         return {

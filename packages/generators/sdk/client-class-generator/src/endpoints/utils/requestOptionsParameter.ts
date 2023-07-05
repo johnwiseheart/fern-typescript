@@ -15,10 +15,13 @@ export const getRequestOptionsParameter = ({
     };
 };
 
-export const getTimeoutExpression = (
-    timeoutInSeconds: number | "infinity" | undefined,
-    property: ts.Identifier
-): ts.Expression => {
+export const getTimeoutExpression = ({
+    timeoutInSeconds,
+    property,
+}: {
+    timeoutInSeconds: number | "infinity" | undefined;
+    property: ts.Identifier;
+}): ts.Expression => {
     return ts.factory.createConditionalExpression(
         ts.factory.createBinaryExpression(
             ts.factory.createPropertyAccessChain(
@@ -26,8 +29,8 @@ export const getTimeoutExpression = (
                 ts.factory.createToken(ts.SyntaxKind.QuestionDotToken),
                 property
             ),
-            ts.factory.createToken(ts.SyntaxKind.ExclamationEqualsEqualsToken),
-            ts.factory.createIdentifier("undefined")
+            ts.factory.createToken(ts.SyntaxKind.ExclamationEqualsToken),
+            ts.factory.createIdentifier("null")
         ),
         ts.factory.createToken(ts.SyntaxKind.QuestionToken),
         ts.factory.createParenthesizedExpression(
