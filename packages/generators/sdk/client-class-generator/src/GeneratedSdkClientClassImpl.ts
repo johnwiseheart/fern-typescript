@@ -41,7 +41,7 @@ export declare namespace GeneratedSdkClientClassImpl {
         includeCredentialsOnCrossOriginRequests: boolean;
         allowCustomFetcher: boolean;
         requireDefaultEnvironment: boolean;
-        timeoutInSeconds: number | "infinity" | undefined;
+        defaultTimeoutInSeconds: number | "infinity" | undefined;
         npmPackage: NpmPackage | undefined;
         targetRuntime: JavaScriptRuntime;
         includeContentHeadersOnFileDownloadResponse: boolean;
@@ -84,7 +84,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
         includeCredentialsOnCrossOriginRequests,
         allowCustomFetcher,
         requireDefaultEnvironment,
-        timeoutInSeconds,
+        defaultTimeoutInSeconds,
         npmPackage,
         targetRuntime,
         includeContentHeadersOnFileDownloadResponse,
@@ -167,7 +167,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                         response: getGeneratedEndpointResponse({ response }),
                         generatedSdkClientClass: this,
                         includeCredentialsOnCrossOriginRequests,
-                        timeoutInSeconds,
+                        defaultTimeoutInSeconds,
                         includeSerdeLayer,
                     });
                 };
@@ -179,7 +179,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                         generatedSdkClientClass: this,
                         includeCredentialsOnCrossOriginRequests,
                         response: streamingResponse,
-                        timeoutInSeconds,
+                        defaultTimeoutInSeconds,
                         request: getGeneratedEndpointRequest(),
                         includeSerdeLayer,
                     });
@@ -197,7 +197,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                                     endpoint,
                                     generatedSdkClientClass: this,
                                     includeCredentialsOnCrossOriginRequests,
-                                    timeoutInSeconds,
+                                    defaultTimeoutInSeconds,
                                     request: getGeneratedEndpointRequest(),
                                     includeContentHeadersOnResponse: includeContentHeadersOnFileDownloadResponse,
                                     includeSerdeLayer,
@@ -207,7 +207,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                                     endpoint,
                                     generatedSdkClientClass: this,
                                     includeCredentialsOnCrossOriginRequests,
-                                    timeoutInSeconds,
+                                    defaultTimeoutInSeconds,
                                     request: getGeneratedEndpointRequest(),
                                     response: getGeneratedEndpointResponse({
                                         response: SdkResponse.fileDownload(fileDownload),

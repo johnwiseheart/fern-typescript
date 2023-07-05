@@ -15,7 +15,7 @@ export declare namespace GeneratedStreamingEndpointImplementation {
         response: StreamingResponse;
         generatedSdkClientClass: GeneratedSdkClientClassImpl;
         includeCredentialsOnCrossOriginRequests: boolean;
-        timeoutInSeconds: number | "infinity" | undefined;
+        defaultTimeoutInSeconds: number | "infinity" | undefined;
         request: GeneratedEndpointRequest;
         includeSerdeLayer: boolean;
     }
@@ -33,7 +33,7 @@ export class GeneratedStreamingEndpointImplementation implements GeneratedEndpoi
     private response: StreamingResponse;
     private generatedSdkClientClass: GeneratedSdkClientClassImpl;
     private includeCredentialsOnCrossOriginRequests: boolean;
-    private timeoutInSeconds: number | "infinity" | undefined;
+    private defaultTimeoutInSeconds: number | "infinity" | undefined;
     private request: GeneratedEndpointRequest;
     private includeSerdeLayer: boolean;
 
@@ -43,7 +43,7 @@ export class GeneratedStreamingEndpointImplementation implements GeneratedEndpoi
         generatedSdkClientClass,
         includeCredentialsOnCrossOriginRequests,
         response,
-        timeoutInSeconds,
+        defaultTimeoutInSeconds,
         request,
         includeSerdeLayer,
     }: GeneratedStreamingEndpointImplementation.Init) {
@@ -52,7 +52,7 @@ export class GeneratedStreamingEndpointImplementation implements GeneratedEndpoi
         this.generatedSdkClientClass = generatedSdkClientClass;
         this.includeCredentialsOnCrossOriginRequests = includeCredentialsOnCrossOriginRequests;
         this.response = response;
-        this.timeoutInSeconds = timeoutInSeconds;
+        this.defaultTimeoutInSeconds = defaultTimeoutInSeconds;
         this.request = request;
         this.includeSerdeLayer = includeSerdeLayer;
     }
@@ -184,7 +184,7 @@ export class GeneratedStreamingEndpointImplementation implements GeneratedEndpoi
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
             timeoutInSeconds: getTimeoutExpression({
-                timeoutInSeconds: this.timeoutInSeconds,
+                defaultTimeoutInSeconds: this.defaultTimeoutInSeconds,
                 property: this.generatedSdkClientClass.getReferenceToTimeoutInSeconds(),
             }),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,

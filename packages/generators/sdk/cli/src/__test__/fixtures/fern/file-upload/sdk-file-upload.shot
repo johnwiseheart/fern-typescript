@@ -363,7 +363,7 @@ class Service {
                 },
                 contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
                 body: _request,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -404,7 +404,7 @@ class Service {
                 },
                 contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
                 body: _request,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -4092,8 +4092,7 @@ export class Service {
             },
             contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
             body: _request,
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;
@@ -4135,8 +4134,7 @@ export class Service {
             },
             contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
             body: _request,
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;

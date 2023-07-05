@@ -12,7 +12,7 @@ export const SdkCustomConfigSchema = z.strictObject({
     includeUtilsOnUnionMembers: z.optional(z.boolean()),
     includeOtherInUnionTypes: z.optional(z.boolean()),
     requireDefaultEnvironment: z.optional(z.boolean()),
-    timeoutInSeconds: z.optional(z.union([z.literal("infinity"), z.number()])),
+    defaultTimeoutInSeconds: z.optional(z.union([z.literal("infinity"), z.number()])),
     skipResponseValidation: z.optional(z.boolean()),
     extraDependencies: z.optional(z.record(z.string())),
     treatUnknownAsAny: z.optional(z.boolean()),

@@ -14,7 +14,7 @@ export declare namespace GeneratedDefaultEndpointImplementation {
         endpoint: HttpEndpoint;
         generatedSdkClientClass: GeneratedSdkClientClassImpl;
         includeCredentialsOnCrossOriginRequests: boolean;
-        timeoutInSeconds: number | "infinity" | undefined;
+        defaultTimeoutInSeconds: number | "infinity" | undefined;
         request: GeneratedEndpointRequest;
         response: GeneratedEndpointResponse;
         includeSerdeLayer: boolean;
@@ -25,7 +25,7 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
     public readonly endpoint: HttpEndpoint;
     private generatedSdkClientClass: GeneratedSdkClientClassImpl;
     private includeCredentialsOnCrossOriginRequests: boolean;
-    private timeoutInSeconds: number | "infinity" | undefined;
+    private defaultTimeoutInSeconds: number | "infinity" | undefined;
     private request: GeneratedEndpointRequest;
     private response: GeneratedEndpointResponse;
     private includeSerdeLayer: boolean;
@@ -35,14 +35,14 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
         response,
         generatedSdkClientClass,
         includeCredentialsOnCrossOriginRequests,
-        timeoutInSeconds,
+        defaultTimeoutInSeconds,
         request,
         includeSerdeLayer,
     }: GeneratedDefaultEndpointImplementation.Init) {
         this.endpoint = endpoint;
         this.generatedSdkClientClass = generatedSdkClientClass;
         this.includeCredentialsOnCrossOriginRequests = includeCredentialsOnCrossOriginRequests;
-        this.timeoutInSeconds = timeoutInSeconds;
+        this.defaultTimeoutInSeconds = defaultTimeoutInSeconds;
         this.request = request;
         this.response = response;
         this.includeSerdeLayer = includeSerdeLayer;
@@ -119,7 +119,7 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
             timeoutInSeconds: getTimeoutExpression({
-                timeoutInSeconds: this.timeoutInSeconds,
+                defaultTimeoutInSeconds: this.defaultTimeoutInSeconds,
                 property: this.generatedSdkClientClass.getReferenceToTimeoutInSeconds(),
             }),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,

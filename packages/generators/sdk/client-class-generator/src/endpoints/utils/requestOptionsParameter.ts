@@ -16,10 +16,10 @@ export const getRequestOptionsParameter = ({
 };
 
 export const getTimeoutExpression = ({
-    timeoutInSeconds,
+    defaultTimeoutInSeconds,
     property,
 }: {
-    timeoutInSeconds: number | "infinity" | undefined;
+    defaultTimeoutInSeconds: number | "infinity" | undefined;
     property: ts.Identifier;
 }): ts.Expression => {
     return ts.factory.createConditionalExpression(
@@ -44,9 +44,9 @@ export const getTimeoutExpression = ({
             )
         ),
         ts.factory.createToken(ts.SyntaxKind.ColonToken),
-        // If timeoutInSeconds is set to infinity, fall back to undefined if requestOptions.timeoutInSeconds is not set
-        timeoutInSeconds !== "infinity"
-            ? ts.factory.createNumericLiteral(timeoutInSeconds != null ? timeoutInSeconds * 1000 : 60000)
+        // If defaultTimeoutInSeconds is set to infinity, fall back to undefined if requestOptions.timeoutInSeconds is not set
+        defaultTimeoutInSeconds !== "infinity"
+            ? ts.factory.createNumericLiteral(defaultTimeoutInSeconds != null ? defaultTimeoutInSeconds * 1000 : 60000)
             : ts.factory.createIdentifier("undefined")
     );
 };

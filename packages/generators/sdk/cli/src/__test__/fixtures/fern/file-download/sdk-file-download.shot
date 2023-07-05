@@ -295,7 +295,7 @@ class Service {
                     \\"X-Fern-SDK-Name\\": \\"@fern/api\\",
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
                 onError: (error) => {
                     throw new errors.FernApiError({
                         message: error === null || error === void 0 ? void 0 : error.message,
@@ -1078,8 +1078,7 @@ export class Service {
                 \\"X-Fern-SDK-Name\\": \\"@fern/api\\",
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             onError: (error) => {
                 throw new errors.FernApiError({
                     message: (error as any)?.message,

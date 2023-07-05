@@ -366,7 +366,7 @@ class Service {
                 },
                 contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
                 body: _request,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
                 onUploadProgress: opts === null || opts === void 0 ? void 0 : opts.onUploadProgress,
             });
             if (_response.ok) {
@@ -408,7 +408,7 @@ class Service {
                 },
                 contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
                 body: _request,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
                 onUploadProgress: opts === null || opts === void 0 ? void 0 : opts.onUploadProgress,
             });
             if (_response.ok) {
@@ -4100,8 +4100,7 @@ export class Service {
             },
             contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
             body: _request,
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             onUploadProgress: opts?.onUploadProgress,
         });
         if (_response.ok) {
@@ -4150,8 +4149,7 @@ export class Service {
             },
             contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
             body: _request,
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             onUploadProgress: opts?.onUploadProgress,
         });
         if (_response.ok) {

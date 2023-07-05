@@ -9962,7 +9962,7 @@ var FiddleService = class {
           \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
         },
         contentType: \\"application/json\\",
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -10003,7 +10003,7 @@ var Health = class {
           \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
         },
         contentType: \\"application/json\\",
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -10047,7 +10047,7 @@ var RemoteGen = class {
         },
         contentType: \\"application/json\\",
         body: yield CreateJobRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -10101,7 +10101,7 @@ var RemoteGen = class {
         },
         contentType: \\"application/json\\",
         body: yield CreateJobRequestV2.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -10156,7 +10156,7 @@ var RemoteGen = class {
           \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
         },
         contentType: \\"application/json\\",
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -23782,7 +23782,7 @@ var FiddleService = class {
           \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
         },
         contentType: \\"application/json\\",
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -23823,7 +23823,7 @@ var Health = class {
           \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
         },
         contentType: \\"application/json\\",
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -23867,7 +23867,7 @@ var RemoteGen = class {
         },
         contentType: \\"application/json\\",
         body: yield CreateJobRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -23921,7 +23921,7 @@ var RemoteGen = class {
         },
         contentType: \\"application/json\\",
         body: yield CreateJobRequestV2.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -23976,7 +23976,7 @@ var RemoteGen = class {
           \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
         },
         contentType: \\"application/json\\",
-        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+        timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
       });
       if (_response.ok) {
         return {
@@ -59117,7 +59117,7 @@ var FiddleService = class {
         \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
       },
       contentType: \\"application/json\\",
-      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
     });
     if (_response.ok) {
       return {
@@ -59154,7 +59154,7 @@ var Health = class {
         \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
       },
       contentType: \\"application/json\\",
-      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
     });
     if (_response.ok) {
       return {
@@ -59194,7 +59194,7 @@ var RemoteGen = class {
       },
       contentType: \\"application/json\\",
       body: await CreateJobRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
     });
     if (_response.ok) {
       return {
@@ -59246,7 +59246,7 @@ var RemoteGen = class {
       },
       contentType: \\"application/json\\",
       body: await CreateJobRequestV2.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
     });
     if (_response.ok) {
       return {
@@ -59299,7 +59299,7 @@ var RemoteGen = class {
         \\"X-Fern-SDK-Version\\": \\"0.0.0\\"
       },
       contentType: \\"application/json\\",
-      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) !== void 0 ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
+      timeoutMs: (_requestOptions == null ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1e3 : 6e4
     });
     if (_response.ok) {
       return {

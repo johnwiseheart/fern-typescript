@@ -13,7 +13,7 @@ export declare namespace GeneratedReadableDownloadEndpointImplementation {
         endpoint: HttpEndpoint;
         generatedSdkClientClass: GeneratedSdkClientClassImpl;
         includeCredentialsOnCrossOriginRequests: boolean;
-        timeoutInSeconds: number | "infinity" | undefined;
+        defaultTimeoutInSeconds: number | "infinity" | undefined;
         request: GeneratedEndpointRequest;
         includeContentHeadersOnResponse: boolean;
         includeSerdeLayer: boolean;
@@ -30,7 +30,7 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
     public readonly endpoint: HttpEndpoint;
     private generatedSdkClientClass: GeneratedSdkClientClassImpl;
     private includeCredentialsOnCrossOriginRequests: boolean;
-    private timeoutInSeconds: number | "infinity" | undefined;
+    private defaultTimeoutInSeconds: number | "infinity" | undefined;
     private request: GeneratedEndpointRequest;
     private includeContentHeadersOnResponse: boolean;
     private includeSerdeLayer: boolean;
@@ -39,7 +39,7 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
         endpoint,
         generatedSdkClientClass,
         includeCredentialsOnCrossOriginRequests,
-        timeoutInSeconds,
+        defaultTimeoutInSeconds,
         request,
         includeContentHeadersOnResponse,
         includeSerdeLayer,
@@ -47,7 +47,7 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
         this.endpoint = endpoint;
         this.generatedSdkClientClass = generatedSdkClientClass;
         this.includeCredentialsOnCrossOriginRequests = includeCredentialsOnCrossOriginRequests;
-        this.timeoutInSeconds = timeoutInSeconds;
+        this.defaultTimeoutInSeconds = defaultTimeoutInSeconds;
         this.request = request;
         this.includeContentHeadersOnResponse = includeContentHeadersOnResponse;
         this.includeSerdeLayer = includeSerdeLayer;
@@ -134,7 +134,7 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
             url: this.getReferenceToEnvironment(context),
             method: ts.factory.createStringLiteral(this.endpoint.method),
             timeoutInSeconds: getTimeoutExpression({
-                timeoutInSeconds: this.timeoutInSeconds,
+                defaultTimeoutInSeconds: this.defaultTimeoutInSeconds,
                 property: this.generatedSdkClientClass.getReferenceToTimeoutInSeconds(),
             }),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,

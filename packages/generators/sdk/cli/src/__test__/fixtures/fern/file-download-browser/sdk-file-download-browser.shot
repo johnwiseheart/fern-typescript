@@ -295,7 +295,7 @@ class Service {
                 },
                 contentType: \\"application/json\\",
                 responseType: \\"blob\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return _response.body;
@@ -924,8 +924,7 @@ export class Service {
             },
             contentType: \\"application/json\\",
             responseType: \\"blob\\",
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return _response.body;

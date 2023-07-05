@@ -259,7 +259,7 @@ class File_ {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.MyUnion.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.MyUnion.parseOrThrow(_response.body, {
@@ -3599,8 +3599,7 @@ export class File_ {
             },
             contentType: \\"application/json\\",
             body: await serializers.MyUnion.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.MyUnion.parseOrThrow(_response.body, {

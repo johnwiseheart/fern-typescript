@@ -214,7 +214,7 @@ class Package {
                 },
                 contentType: \\"application/json\\",
                 queryParameters: _queryParams,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return {

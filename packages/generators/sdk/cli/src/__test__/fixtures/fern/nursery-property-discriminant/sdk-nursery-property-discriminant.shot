@@ -196,7 +196,7 @@ class FernApiClient {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.RootString.parseOrThrow(_response.body, {
@@ -446,7 +446,7 @@ class Owner {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.CreateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -499,7 +499,7 @@ class Owner {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.Owner.parseOrThrow(_response.body, {
@@ -553,7 +553,7 @@ class Owner {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.UpdateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.Owner.parseOrThrow(_response.body, {
@@ -1052,7 +1052,7 @@ class Package {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.package_.PackageString.parseOrThrow(_response.body, {
@@ -1277,7 +1277,7 @@ class Nested {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.package_.NestedString.parseOrThrow(_response.body, {
@@ -1590,7 +1590,7 @@ class Token {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.CreateTokenRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.CreateTokenResponse.parseOrThrow(_response.body, {
@@ -1644,7 +1644,7 @@ class Token {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.GetTokenMetadataRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.TokenMetadata.parseOrThrow(_response.body, {
@@ -1698,7 +1698,7 @@ class Token {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.token.getTokensForOwner.Response.parseOrThrow(_response.body, {
@@ -6717,8 +6717,7 @@ export class FernApiClient {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.RootString.parseOrThrow(_response.body, {
@@ -6847,8 +6846,7 @@ export class Owner {
             },
             contentType: \\"application/json\\",
             body: await serializers.CreateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;
@@ -6906,8 +6904,7 @@ export class Owner {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.Owner.parseOrThrow(_response.body, {
@@ -6968,8 +6965,7 @@ export class Owner {
             },
             contentType: \\"application/json\\",
             body: await serializers.UpdateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.Owner.parseOrThrow(_response.body, {
@@ -7209,8 +7205,7 @@ export class Package {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.package_.PackageString.parseOrThrow(_response.body, {
@@ -7321,8 +7316,7 @@ export class Nested {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.package_.NestedString.parseOrThrow(_response.body, {
@@ -7484,8 +7478,7 @@ export class Token {
             },
             contentType: \\"application/json\\",
             body: await serializers.CreateTokenRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.CreateTokenResponse.parseOrThrow(_response.body, {
@@ -7545,8 +7538,7 @@ export class Token {
             },
             contentType: \\"application/json\\",
             body: await serializers.GetTokenMetadataRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.TokenMetadata.parseOrThrow(_response.body, {
@@ -7606,8 +7598,7 @@ export class Token {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs:
-                _requestOptions?.timeoutInSeconds !== undefined ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.token.getTokensForOwner.Response.parseOrThrow(_response.body, {
