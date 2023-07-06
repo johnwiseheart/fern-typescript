@@ -40,7 +40,7 @@ const FIXTURES: FixtureInfo[] = [
         customConfig: {
             requireDefaultEnvironment: true,
             allowCustomFetcher: true,
-            defaultTimeoutInSeconds: 2,
+            timeoutInSeconds: 2,
         },
         targetRuntime: JavaScriptRuntime.NODE,
     },
@@ -55,7 +55,7 @@ const FIXTURES: FixtureInfo[] = [
             includeCredentialsOnCrossOriginRequests: true,
             includeUtilsOnUnionMembers: true,
             includeOtherInUnionTypes: true,
-            defaultTimeoutInSeconds: "infinity",
+            timeoutInSeconds: "infinity",
         },
         targetRuntime: JavaScriptRuntime.NODE,
     },

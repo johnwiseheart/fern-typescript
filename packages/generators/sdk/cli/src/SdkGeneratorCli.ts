@@ -37,7 +37,7 @@ export class SdkGeneratorCli extends AbstractGeneratorCli<SdkCustomConfig> {
             includeUtilsOnUnionMembers: !noSerdeLayer && (parsed?.includeUtilsOnUnionMembers ?? false),
             includeOtherInUnionTypes: parsed?.includeOtherInUnionTypes ?? false,
             requireDefaultEnvironment: parsed?.requireDefaultEnvironment ?? false,
-            defaultTimeoutInSeconds: parsed?.defaultTimeoutInSeconds,
+            defaultTimeoutInSeconds: parsed?.timeoutInSeconds,
             skipResponseValidation: noSerdeLayer || (parsed?.skipResponseValidation ?? false),
             extraDependencies: parsed?.extraDependencies ?? {},
             treatUnknownAsAny: parsed?.treatUnknownAsAny ?? false,
