@@ -243,10 +243,10 @@ export declare class Service {
     constructor(_options: Service.Options);
     post(file: File | Blob, maybeFile: File | Blob | undefined, request: FernApi.MyRequest, opts?: {
         onUploadProgress: (event: axios.AxiosProgressEvent) => void;
-    }, _requestOptions?: Service.RequestOptions): Promise<void>;
+    }, requestOptions?: Service.RequestOptions): Promise<void>;
     justFile(file: File | Blob, opts?: {
         onUploadProgress: (event: axios.AxiosProgressEvent) => void;
-    }, _requestOptions?: Service.RequestOptions): Promise<void>;
+    }, requestOptions?: Service.RequestOptions): Promise<void>;
 }
 ",
                         "name": "Client.d.ts",
@@ -302,7 +302,7 @@ class Service {
     constructor(_options) {
         this._options = _options;
     }
-    post(file, maybeFile, request, opts, _requestOptions) {
+    post(file, maybeFile, request, opts, requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _request = new form_data_1.default();
             if (request.maybeString != null) {
@@ -366,7 +366,7 @@ class Service {
                 },
                 contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
                 body: _request,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
                 onUploadProgress: opts === null || opts === void 0 ? void 0 : opts.onUploadProgress,
             });
             if (_response.ok) {
@@ -393,7 +393,7 @@ class Service {
             }
         });
     }
-    justFile(file, opts, _requestOptions) {
+    justFile(file, opts, requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _request = new form_data_1.default();
             _request.append(\\"file\\", file);
@@ -408,7 +408,7 @@ class Service {
                 },
                 contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
                 body: _request,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
                 onUploadProgress: opts === null || opts === void 0 ? void 0 : opts.onUploadProgress,
             });
             if (_response.ok) {
@@ -4021,7 +4021,7 @@ export class Service {
         opts?: {
             onUploadProgress: (event: axios.AxiosProgressEvent) => void;
         },
-        _requestOptions?: Service.RequestOptions
+        requestOptions?: Service.RequestOptions
     ): Promise<void> {
         const _request = new FormData();
         if (request.maybeString != null) {
@@ -4100,7 +4100,7 @@ export class Service {
             },
             contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
             body: _request,
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             onUploadProgress: opts?.onUploadProgress,
         });
         if (_response.ok) {
@@ -4134,7 +4134,7 @@ export class Service {
         opts?: {
             onUploadProgress: (event: axios.AxiosProgressEvent) => void;
         },
-        _requestOptions?: Service.RequestOptions
+        requestOptions?: Service.RequestOptions
     ): Promise<void> {
         const _request = new FormData();
         _request.append(\\"file\\", file);
@@ -4149,7 +4149,7 @@ export class Service {
             },
             contentType: \\"multipart/form-data; boundary=\\" + _request.getBoundary(),
             body: _request,
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             onUploadProgress: opts?.onUploadProgress,
         });
         if (_response.ok) {

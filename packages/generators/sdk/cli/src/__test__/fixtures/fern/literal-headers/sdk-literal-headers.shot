@@ -257,7 +257,7 @@ export declare namespace NoHeaders {
 export declare class NoHeaders {
     protected readonly _options: NoHeaders.Options;
     constructor(_options: NoHeaders.Options);
-    get(_requestOptions?: NoHeaders.RequestOptions): Promise<void>;
+    get(requestOptions?: NoHeaders.RequestOptions): Promise<void>;
 }
 ",
                         "name": "Client.d.ts",
@@ -312,7 +312,7 @@ class NoHeaders {
     constructor(_options) {
         this._options = _options;
     }
-    get(_requestOptions) {
+    get(requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
                 url: (0, url_join_1.default)(yield core.Supplier.get(this._options.environment), \\"/no-headers\\"),
@@ -324,7 +324,7 @@ class NoHeaders {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -425,7 +425,7 @@ export declare namespace OnlyLiteralHeaders {
 export declare class OnlyLiteralHeaders {
     protected readonly _options: OnlyLiteralHeaders.Options;
     constructor(_options: OnlyLiteralHeaders.Options);
-    get(_requestOptions?: OnlyLiteralHeaders.RequestOptions): Promise<void>;
+    get(requestOptions?: OnlyLiteralHeaders.RequestOptions): Promise<void>;
 }
 ",
                         "name": "Client.d.ts",
@@ -480,7 +480,7 @@ class OnlyLiteralHeaders {
     constructor(_options) {
         this._options = _options;
     }
-    get(_requestOptions) {
+    get(requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
                 url: (0, url_join_1.default)(yield core.Supplier.get(this._options.environment), \\"/only-literal-headers\\"),
@@ -494,7 +494,7 @@ class OnlyLiteralHeaders {
                     literalEndpointHeader: \\"endpoint header\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -596,7 +596,7 @@ export declare namespace WithNonLiteralHeaders {
 export declare class WithNonLiteralHeaders {
     protected readonly _options: WithNonLiteralHeaders.Options;
     constructor(_options: WithNonLiteralHeaders.Options);
-    get(request: FernApi.WithNonLiteralHeadersRequest, _requestOptions?: WithNonLiteralHeaders.RequestOptions): Promise<void>;
+    get(request: FernApi.WithNonLiteralHeadersRequest, requestOptions?: WithNonLiteralHeaders.RequestOptions): Promise<void>;
 }
 ",
                         "name": "Client.d.ts",
@@ -651,7 +651,7 @@ class WithNonLiteralHeaders {
     constructor(_options) {
         this._options = _options;
     }
-    get(request, _requestOptions) {
+    get(request, requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const { integer, maybeInteger, nonLiteralEndpointHeader } = request;
             const _response = yield core.fetcher({
@@ -669,7 +669,7 @@ class WithNonLiteralHeaders {
                     literalEndpointHeader: \\"endpoint header\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -1364,7 +1364,7 @@ export declare namespace NoHeaders {
 export class NoHeaders {
     constructor(protected readonly _options: NoHeaders.Options) {}
 
-    public async get(_requestOptions?: NoHeaders.RequestOptions): Promise<void> {
+    public async get(requestOptions?: NoHeaders.RequestOptions): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(await core.Supplier.get(this._options.environment), \\"/no-headers\\"),
             method: \\"POST\\",
@@ -1375,7 +1375,7 @@ export class NoHeaders {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;
@@ -1453,7 +1453,7 @@ export declare namespace OnlyLiteralHeaders {
 export class OnlyLiteralHeaders {
     constructor(protected readonly _options: OnlyLiteralHeaders.Options) {}
 
-    public async get(_requestOptions?: OnlyLiteralHeaders.RequestOptions): Promise<void> {
+    public async get(requestOptions?: OnlyLiteralHeaders.RequestOptions): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(await core.Supplier.get(this._options.environment), \\"/only-literal-headers\\"),
             method: \\"POST\\",
@@ -1466,7 +1466,7 @@ export class OnlyLiteralHeaders {
                 literalEndpointHeader: \\"endpoint header\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;
@@ -1547,7 +1547,7 @@ export class WithNonLiteralHeaders {
 
     public async get(
         request: FernApi.WithNonLiteralHeadersRequest,
-        _requestOptions?: WithNonLiteralHeaders.RequestOptions
+        requestOptions?: WithNonLiteralHeaders.RequestOptions
     ): Promise<void> {
         const { integer, maybeInteger, nonLiteralEndpointHeader } = request;
         const _response = await core.fetcher({
@@ -1565,7 +1565,7 @@ export class WithNonLiteralHeaders {
                 literalEndpointHeader: \\"endpoint header\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;

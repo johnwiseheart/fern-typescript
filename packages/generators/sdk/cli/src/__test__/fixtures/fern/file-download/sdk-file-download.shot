@@ -234,7 +234,7 @@ export declare namespace Service {
 export declare class Service {
     protected readonly _options: Service.Options;
     constructor(_options: Service.Options);
-    downloadFile(_requestOptions?: Service.RequestOptions): Promise<stream.Readable>;
+    downloadFile(requestOptions?: Service.RequestOptions): Promise<stream.Readable>;
 }
 ",
                         "name": "Client.d.ts",
@@ -285,7 +285,7 @@ class Service {
     constructor(_options) {
         this._options = _options;
     }
-    downloadFile(_requestOptions) {
+    downloadFile(requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.streamingFetcher({
                 url: yield core.Supplier.get(this._options.environment),
@@ -295,7 +295,7 @@ class Service {
                     \\"X-Fern-SDK-Name\\": \\"@fern/api\\",
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
                 onError: (error) => {
                     throw new errors.FernApiError({
                         message: error === null || error === void 0 ? void 0 : error.message,
@@ -1069,7 +1069,7 @@ export declare namespace Service {
 export class Service {
     constructor(protected readonly _options: Service.Options) {}
 
-    public async downloadFile(_requestOptions?: Service.RequestOptions): Promise<stream.Readable> {
+    public async downloadFile(requestOptions?: Service.RequestOptions): Promise<stream.Readable> {
         const _response = await core.streamingFetcher({
             url: await core.Supplier.get(this._options.environment),
             method: \\"POST\\",
@@ -1078,7 +1078,7 @@ export class Service {
                 \\"X-Fern-SDK-Name\\": \\"@fern/api\\",
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             onError: (error) => {
                 throw new errors.FernApiError({
                     message: (error as any)?.message,

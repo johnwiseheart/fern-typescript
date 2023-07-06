@@ -238,7 +238,7 @@ export declare namespace Service {
 export declare class Service {
     protected readonly _options: Service.Options;
     constructor(_options: Service.Options);
-    post(id: string, request: FernApi.MyRequest, _requestOptions?: Service.RequestOptions): Promise<void>;
+    post(id: string, request: FernApi.MyRequest, requestOptions?: Service.RequestOptions): Promise<void>;
 }
 ",
                         "name": "Client.d.ts",
@@ -294,7 +294,7 @@ class Service {
     constructor(_options) {
         this._options = _options;
     }
-    post(id, request, _requestOptions) {
+    post(id, request, requestOptions) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id: id_ } = request;
             const _queryParams = new url_search_params_1.default();
@@ -309,7 +309,7 @@ class Service {
                 },
                 contentType: \\"application/json\\",
                 queryParameters: _queryParams,
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -988,7 +988,7 @@ export declare namespace Service {
 export class Service {
     constructor(protected readonly _options: Service.Options) {}
 
-    public async post(id: string, request: FernApi.MyRequest, _requestOptions?: Service.RequestOptions): Promise<void> {
+    public async post(id: string, request: FernApi.MyRequest, requestOptions?: Service.RequestOptions): Promise<void> {
         const { id: id_ } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append(\\"id\\", id_);
@@ -1002,7 +1002,7 @@ export class Service {
             },
             contentType: \\"application/json\\",
             queryParameters: _queryParams,
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;

@@ -120,7 +120,7 @@ export declare namespace FernApiClient {
 export declare class FernApiClient {
     protected readonly _options: FernApiClient.Options;
     constructor(_options: FernApiClient.Options);
-    getString(_requestOptions?: FernApiClient.RequestOptions): Promise<FernApi.RootString>;
+    getString(requestOptions?: FernApiClient.RequestOptions): Promise<FernApi.RootString>;
     protected _package: Package | undefined;
     get package(): Package;
     protected _owner: Owner | undefined;
@@ -182,7 +182,7 @@ class FernApiClient {
     constructor(_options) {
         this._options = _options;
     }
-    getString(_requestOptions) {
+    getString(requestOptions) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -196,7 +196,7 @@ class FernApiClient {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.RootString.parseOrThrow(_response.body, {
@@ -362,15 +362,15 @@ export declare class Owner {
     /**
      * @throws {@link FernApi.OwnerAlreadyExistsError}
      */
-    create(request: FernApi.CreateOwnerRequest, _requestOptions?: Owner.RequestOptions): Promise<void>;
+    create(request: FernApi.CreateOwnerRequest, requestOptions?: Owner.RequestOptions): Promise<void>;
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    get(ownerId: FernApi.OwnerId, _requestOptions?: Owner.RequestOptions): Promise<FernApi.Owner>;
+    get(ownerId: FernApi.OwnerId, requestOptions?: Owner.RequestOptions): Promise<FernApi.Owner>;
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    update(ownerId: FernApi.OwnerId, request: FernApi.UpdateOwnerRequest, _requestOptions?: Owner.RequestOptions): Promise<FernApi.Owner>;
+    update(ownerId: FernApi.OwnerId, request: FernApi.UpdateOwnerRequest, requestOptions?: Owner.RequestOptions): Promise<FernApi.Owner>;
 }
 ",
                         "name": "Client.d.ts",
@@ -431,7 +431,7 @@ class Owner {
     /**
      * @throws {@link FernApi.OwnerAlreadyExistsError}
      */
-    create(request, _requestOptions) {
+    create(request, requestOptions) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -446,7 +446,7 @@ class Owner {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.CreateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return;
@@ -485,7 +485,7 @@ class Owner {
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    get(ownerId, _requestOptions) {
+    get(ownerId, requestOptions) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -499,7 +499,7 @@ class Owner {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.Owner.parseOrThrow(_response.body, {
@@ -538,7 +538,7 @@ class Owner {
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    update(ownerId, request, _requestOptions) {
+    update(ownerId, request, requestOptions) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -553,7 +553,7 @@ class Owner {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.UpdateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.Owner.parseOrThrow(_response.body, {
@@ -982,7 +982,7 @@ export declare namespace Package {
 export declare class Package {
     protected readonly _options: Package.Options;
     constructor(_options: Package.Options);
-    getString(_requestOptions?: Package.RequestOptions): Promise<FernApi.package_.PackageString>;
+    getString(requestOptions?: Package.RequestOptions): Promise<FernApi.package_.PackageString>;
     protected _nested: Nested | undefined;
     get nested(): Nested;
 }
@@ -1038,7 +1038,7 @@ class Package {
     constructor(_options) {
         this._options = _options;
     }
-    getString(_requestOptions) {
+    getString(requestOptions) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -1052,7 +1052,7 @@ class Package {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.package_.PackageString.parseOrThrow(_response.body, {
@@ -1210,7 +1210,7 @@ export declare namespace Nested {
 export declare class Nested {
     protected readonly _options: Nested.Options;
     constructor(_options: Nested.Options);
-    getString(_requestOptions?: Nested.RequestOptions): Promise<FernApi.package_.NestedString>;
+    getString(requestOptions?: Nested.RequestOptions): Promise<FernApi.package_.NestedString>;
 }
 ",
                                 "name": "Client.d.ts",
@@ -1263,7 +1263,7 @@ class Nested {
     constructor(_options) {
         this._options = _options;
     }
-    getString(_requestOptions) {
+    getString(requestOptions) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -1277,7 +1277,7 @@ class Nested {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.package_.NestedString.parseOrThrow(_response.body, {
@@ -1505,16 +1505,16 @@ export declare class Token {
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    create(request: FernApi.CreateTokenRequest, _requestOptions?: Token.RequestOptions): Promise<FernApi.CreateTokenResponse>;
+    create(request: FernApi.CreateTokenRequest, requestOptions?: Token.RequestOptions): Promise<FernApi.CreateTokenResponse>;
     /**
      * @throws {@link FernApi.TokenNotFoundError}
      */
-    getTokenMetadata(request: FernApi.GetTokenMetadataRequest, _requestOptions?: Token.RequestOptions): Promise<FernApi.TokenMetadata>;
+    getTokenMetadata(request: FernApi.GetTokenMetadataRequest, requestOptions?: Token.RequestOptions): Promise<FernApi.TokenMetadata>;
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      * @throws {@link FernApi.UnknownError}
      */
-    getTokensForOwner(ownerId: FernApi.OwnerId, _requestOptions?: Token.RequestOptions): Promise<FernApi.TokenMetadata[]>;
+    getTokensForOwner(ownerId: FernApi.OwnerId, requestOptions?: Token.RequestOptions): Promise<FernApi.TokenMetadata[]>;
 }
 ",
                         "name": "Client.d.ts",
@@ -1575,7 +1575,7 @@ class Token {
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    create(request, _requestOptions) {
+    create(request, requestOptions) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -1590,7 +1590,7 @@ class Token {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.CreateTokenRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.CreateTokenResponse.parseOrThrow(_response.body, {
@@ -1629,7 +1629,7 @@ class Token {
     /**
      * @throws {@link FernApi.TokenNotFoundError}
      */
-    getTokenMetadata(request, _requestOptions) {
+    getTokenMetadata(request, requestOptions) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -1644,7 +1644,7 @@ class Token {
                 },
                 contentType: \\"application/json\\",
                 body: yield serializers.GetTokenMetadataRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.TokenMetadata.parseOrThrow(_response.body, {
@@ -1684,7 +1684,7 @@ class Token {
      * @throws {@link FernApi.OwnerNotFoundError}
      * @throws {@link FernApi.UnknownError}
      */
-    getTokensForOwner(ownerId, _requestOptions) {
+    getTokensForOwner(ownerId, requestOptions) {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             const _response = yield core.fetcher({
@@ -1698,7 +1698,7 @@ class Token {
                     \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
                 },
                 contentType: \\"application/json\\",
-                timeoutMs: (_requestOptions === null || _requestOptions === void 0 ? void 0 : _requestOptions.timeoutInSeconds) != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+                timeoutMs: (requestOptions === null || requestOptions === void 0 ? void 0 : requestOptions.timeoutInSeconds) != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             });
             if (_response.ok) {
                 return yield serializers.token.getTokensForOwner.Response.parseOrThrow(_response.body, {
@@ -6705,7 +6705,7 @@ export declare namespace FernApiClient {
 export class FernApiClient {
     constructor(protected readonly _options: FernApiClient.Options) {}
 
-    public async getString(_requestOptions?: FernApiClient.RequestOptions): Promise<FernApi.RootString> {
+    public async getString(requestOptions?: FernApiClient.RequestOptions): Promise<FernApi.RootString> {
         const _response = await core.fetcher({
             url: ((await core.Supplier.get(this._options.environment)) ?? environments.FernApiEnvironment.Production)
                 .serverA,
@@ -6717,7 +6717,7 @@ export class FernApiClient {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.RootString.parseOrThrow(_response.body, {
@@ -6830,7 +6830,7 @@ export class Owner {
     /**
      * @throws {@link FernApi.OwnerAlreadyExistsError}
      */
-    public async create(request: FernApi.CreateOwnerRequest, _requestOptions?: Owner.RequestOptions): Promise<void> {
+    public async create(request: FernApi.CreateOwnerRequest, requestOptions?: Owner.RequestOptions): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(
                 ((await core.Supplier.get(this._options.environment)) ?? environments.FernApiEnvironment.Production)
@@ -6846,7 +6846,7 @@ export class Owner {
             },
             contentType: \\"application/json\\",
             body: await serializers.CreateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return;
@@ -6889,7 +6889,7 @@ export class Owner {
     /**
      * @throws {@link FernApi.OwnerNotFoundError}
      */
-    public async get(ownerId: FernApi.OwnerId, _requestOptions?: Owner.RequestOptions): Promise<FernApi.Owner> {
+    public async get(ownerId: FernApi.OwnerId, requestOptions?: Owner.RequestOptions): Promise<FernApi.Owner> {
         const _response = await core.fetcher({
             url: urlJoin(
                 ((await core.Supplier.get(this._options.environment)) ?? environments.FernApiEnvironment.Production)
@@ -6904,7 +6904,7 @@ export class Owner {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.Owner.parseOrThrow(_response.body, {
@@ -6948,7 +6948,7 @@ export class Owner {
     public async update(
         ownerId: FernApi.OwnerId,
         request: FernApi.UpdateOwnerRequest,
-        _requestOptions?: Owner.RequestOptions
+        requestOptions?: Owner.RequestOptions
     ): Promise<FernApi.Owner> {
         const _response = await core.fetcher({
             url: urlJoin(
@@ -6965,7 +6965,7 @@ export class Owner {
             },
             contentType: \\"application/json\\",
             body: await serializers.UpdateOwnerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.Owner.parseOrThrow(_response.body, {
@@ -7193,7 +7193,7 @@ export declare namespace Package {
 export class Package {
     constructor(protected readonly _options: Package.Options) {}
 
-    public async getString(_requestOptions?: Package.RequestOptions): Promise<FernApi.package_.PackageString> {
+    public async getString(requestOptions?: Package.RequestOptions): Promise<FernApi.package_.PackageString> {
         const _response = await core.fetcher({
             url: ((await core.Supplier.get(this._options.environment)) ?? environments.FernApiEnvironment.Production)
                 .serverA,
@@ -7205,7 +7205,7 @@ export class Package {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.package_.PackageString.parseOrThrow(_response.body, {
@@ -7304,7 +7304,7 @@ export declare namespace Nested {
 export class Nested {
     constructor(protected readonly _options: Nested.Options) {}
 
-    public async getString(_requestOptions?: Nested.RequestOptions): Promise<FernApi.package_.NestedString> {
+    public async getString(requestOptions?: Nested.RequestOptions): Promise<FernApi.package_.NestedString> {
         const _response = await core.fetcher({
             url: ((await core.Supplier.get(this._options.environment)) ?? environments.FernApiEnvironment.Production)
                 .serverA,
@@ -7316,7 +7316,7 @@ export class Nested {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.package_.NestedString.parseOrThrow(_response.body, {
@@ -7461,7 +7461,7 @@ export class Token {
      */
     public async create(
         request: FernApi.CreateTokenRequest,
-        _requestOptions?: Token.RequestOptions
+        requestOptions?: Token.RequestOptions
     ): Promise<FernApi.CreateTokenResponse> {
         const _response = await core.fetcher({
             url: urlJoin(
@@ -7478,7 +7478,7 @@ export class Token {
             },
             contentType: \\"application/json\\",
             body: await serializers.CreateTokenRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.CreateTokenResponse.parseOrThrow(_response.body, {
@@ -7521,7 +7521,7 @@ export class Token {
      */
     public async getTokenMetadata(
         request: FernApi.GetTokenMetadataRequest,
-        _requestOptions?: Token.RequestOptions
+        requestOptions?: Token.RequestOptions
     ): Promise<FernApi.TokenMetadata> {
         const _response = await core.fetcher({
             url: urlJoin(
@@ -7538,7 +7538,7 @@ export class Token {
             },
             contentType: \\"application/json\\",
             body: await serializers.GetTokenMetadataRequest.jsonOrThrow(request, { unrecognizedObjectKeys: \\"strip\\" }),
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.TokenMetadata.parseOrThrow(_response.body, {
@@ -7582,7 +7582,7 @@ export class Token {
      */
     public async getTokensForOwner(
         ownerId: FernApi.OwnerId,
-        _requestOptions?: Token.RequestOptions
+        requestOptions?: Token.RequestOptions
     ): Promise<FernApi.TokenMetadata[]> {
         const _response = await core.fetcher({
             url: urlJoin(
@@ -7598,7 +7598,7 @@ export class Token {
                 \\"X-Fern-SDK-Version\\": \\"0.0.1\\",
             },
             contentType: \\"application/json\\",
-            timeoutMs: _requestOptions?.timeoutInSeconds != null ? _requestOptions.timeoutInSeconds * 1000 : 60000,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
         });
         if (_response.ok) {
             return await serializers.token.getTokensForOwner.Response.parseOrThrow(_response.body, {
