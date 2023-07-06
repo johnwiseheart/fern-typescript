@@ -642,8 +642,27 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
         );
     }
 
-    public getReferenceToTimeoutInSeconds(): ts.Identifier {
-        return ts.factory.createIdentifier(GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME);
+    public getReferenceToTimeoutInSeconds({
+        referenceToRequestOptions,
+        isNullable,
+    }: {
+        referenceToRequestOptions: ts.Expression;
+        isNullable: boolean;
+    }): ts.Expression {
+        return isNullable
+            ? ts.factory.createPropertyAccessChain(
+                  referenceToRequestOptions,
+                  ts.factory.createToken(ts.SyntaxKind.QuestionDotToken),
+                  ts.factory.createIdentifier(
+                      GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME
+                  )
+              )
+            : ts.factory.createPropertyAccessExpression(
+                  referenceToRequestOptions,
+                  ts.factory.createIdentifier(
+                      GeneratedSdkClientClassImpl.TIMEOUT_IN_SECONDS_REQUEST_OPTION_PROPERTY_NAME
+                  )
+              );
     }
 
     public getReferenceToOptions(): ts.Expression {

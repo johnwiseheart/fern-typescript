@@ -126,7 +126,9 @@ export class GeneratedReadableDownloadEndpointImplementation implements Generate
             method: ts.factory.createStringLiteral(this.endpoint.method),
             timeoutInSeconds: getTimeoutExpression({
                 defaultTimeoutInSeconds: this.defaultTimeoutInSeconds,
-                property: this.generatedSdkClientClass.getReferenceToTimeoutInSeconds(),
+                timeoutInSecondsReference: this.generatedSdkClientClass.getReferenceToTimeoutInSeconds.bind(
+                    this.generatedSdkClientClass
+                ),
             }),
             withCredentials: this.includeCredentialsOnCrossOriginRequests,
         };

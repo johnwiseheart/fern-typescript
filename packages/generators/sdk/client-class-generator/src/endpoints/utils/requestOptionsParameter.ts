@@ -17,28 +17,30 @@ export const getRequestOptionsParameter = ({
 
 export const getTimeoutExpression = ({
     defaultTimeoutInSeconds,
-    property,
+    timeoutInSecondsReference,
 }: {
     defaultTimeoutInSeconds: number | "infinity" | undefined;
-    property: ts.Identifier;
+    timeoutInSecondsReference: (args: {
+        referenceToRequestOptions: ts.Expression;
+        isNullable: boolean;
+    }) => ts.Expression;
 }): ts.Expression => {
     return ts.factory.createConditionalExpression(
         ts.factory.createBinaryExpression(
-            ts.factory.createPropertyAccessChain(
-                ts.factory.createIdentifier(REQUEST_OPTIONS_PARAMETER_NAME),
-                ts.factory.createToken(ts.SyntaxKind.QuestionDotToken),
-                property
-            ),
+            timeoutInSecondsReference({
+                referenceToRequestOptions: ts.factory.createIdentifier(REQUEST_OPTIONS_PARAMETER_NAME),
+                isNullable: true,
+            }),
             ts.factory.createToken(ts.SyntaxKind.ExclamationEqualsToken),
             ts.factory.createIdentifier("null")
         ),
         ts.factory.createToken(ts.SyntaxKind.QuestionToken),
         ts.factory.createParenthesizedExpression(
             ts.factory.createBinaryExpression(
-                ts.factory.createPropertyAccessExpression(
-                    ts.factory.createIdentifier(REQUEST_OPTIONS_PARAMETER_NAME),
-                    property
-                ),
+                timeoutInSecondsReference({
+                    referenceToRequestOptions: ts.factory.createIdentifier(REQUEST_OPTIONS_PARAMETER_NAME),
+                    isNullable: false,
+                }),
                 ts.factory.createToken(ts.SyntaxKind.AsteriskToken),
                 ts.factory.createNumericLiteral("1000")
             )
