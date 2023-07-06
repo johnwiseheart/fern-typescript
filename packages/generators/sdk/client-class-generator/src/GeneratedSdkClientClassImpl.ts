@@ -171,24 +171,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                     });
                 };
 
-<<<<<<< HEAD
-                const getStreamingEndpointImplementation = (streamingResponse: StreamingResponse) => {
-                    return new GeneratedStreamingEndpointImplementation({
-                        packageId,
-                        endpoint,
-                        generatedSdkClientClass: this,
-                        includeCredentialsOnCrossOriginRequests,
-                        response: streamingResponse,
-                        defaultTimeoutInSeconds,
-                        request: getGeneratedEndpointRequest(),
-                        includeSerdeLayer,
-                    });
-                };
-
-                if (endpoint.sdkResponse == null) {
-=======
                 if (endpoint.response == null) {
->>>>>>> main
                     return getDefaultEndpointImplementation({ response: undefined });
                 }
 
@@ -229,7 +212,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                             generatedSdkClientClass: this,
                             includeCredentialsOnCrossOriginRequests,
                             response: streamingResponse,
-                            timeoutInSeconds,
+                            defaultTimeoutInSeconds,
                             request: getGeneratedEndpointRequest(),
                             includeSerdeLayer,
                         }),

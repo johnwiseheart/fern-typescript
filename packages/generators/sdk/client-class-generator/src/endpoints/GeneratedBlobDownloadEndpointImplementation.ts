@@ -54,19 +54,12 @@ export class GeneratedBlobDownloadEndpointImplementation implements GeneratedEnd
 
     public getSignature(context: SdkContext): EndpointSignature {
         return {
-<<<<<<< HEAD
             parameters: [
-                ...this.request.getEndpointParameters(context, {
-                    requestParameterIntersection,
-                    excludeInitializers,
-                }),
+                ...this.request.getEndpointParameters(context),
                 getRequestOptionsParameter({
                     requestOptionsReference: this.generatedSdkClientClass.getReferenceToRequestOptions(),
                 }),
             ],
-=======
-            parameters: this.request.getEndpointParameters(context),
->>>>>>> main
             returnTypeWithoutPromise: this.response.getReturnType(context),
         };
     }
