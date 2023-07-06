@@ -52,14 +52,9 @@ export class GeneratedBlobDownloadEndpointImplementation implements GeneratedEnd
         return [];
     }
 
-    public getSignature(
-        context: SdkContext,
-        {
-            requestParameterIntersection,
-            excludeInitializers = false,
-        }: { requestParameterIntersection?: ts.TypeNode; excludeInitializers?: boolean } = {}
-    ): EndpointSignature {
+    public getSignature(context: SdkContext): EndpointSignature {
         return {
+<<<<<<< HEAD
             parameters: [
                 ...this.request.getEndpointParameters(context, {
                     requestParameterIntersection,
@@ -69,6 +64,9 @@ export class GeneratedBlobDownloadEndpointImplementation implements GeneratedEnd
                     requestOptionsReference: this.generatedSdkClientClass.getReferenceToRequestOptions(),
                 }),
             ],
+=======
+            parameters: this.request.getEndpointParameters(context),
+>>>>>>> main
             returnTypeWithoutPromise: this.response.getReturnType(context),
         };
     }

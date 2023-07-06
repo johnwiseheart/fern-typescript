@@ -1,6 +1,6 @@
 import { assertNever } from "@fern-api/core-utils";
 import { AuthScheme, BasicAuthScheme, BearerAuthScheme, HeaderAuthScheme } from "@fern-fern/ir-model/auth";
-import { HttpEndpoint, HttpHeader, PathParameter, SdkResponse, StreamingResponse } from "@fern-fern/ir-model/http";
+import { HttpEndpoint, HttpHeader, HttpResponse, PathParameter } from "@fern-fern/ir-model/http";
 import { IntermediateRepresentation, Package } from "@fern-fern/ir-model/ir";
 import { VariableDeclaration, VariableId } from "@fern-fern/ir-model/variables";
 import {
@@ -21,7 +21,6 @@ import { GeneratedThrowingEndpointResponse } from "./endpoints/default/endpoint-
 import { GeneratedDefaultEndpointImplementation } from "./endpoints/default/GeneratedDefaultEndpointImplementation";
 import { GeneratedBlobDownloadEndpointImplementation } from "./endpoints/GeneratedBlobDownloadEndpointImplementation";
 import { GeneratedEndpointImplementation } from "./endpoints/GeneratedEndpointImplementation";
-import { GeneratedMaybeStreamingEndpointImplementation } from "./endpoints/GeneratedMaybeStreamingEndpointImplementation";
 import { GeneratedReadableDownloadEndpointImplementation } from "./endpoints/GeneratedReadableDownloadEndpointImplementation";
 import { GeneratedStreamingEndpointImplementation } from "./endpoints/GeneratedStreamingEndpointImplementation";
 import { getNonVariablePathParameters } from "./endpoints/utils/getNonVariablePathParameters";
@@ -134,7 +133,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                 const getGeneratedEndpointResponse = ({
                     response,
                 }: {
-                    response: SdkResponse.Json | SdkResponse.FileDownload | undefined;
+                    response: HttpResponse.Json | HttpResponse.FileDownload | undefined;
                 }) => {
                     if (neverThrowErrors) {
                         return new GeneratedNonThrowingEndpointResponse({
@@ -159,7 +158,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                 const getDefaultEndpointImplementation = ({
                     response,
                 }: {
-                    response: SdkResponse.Json | SdkResponse.FileDownload | undefined;
+                    response: HttpResponse.Json | HttpResponse.FileDownload | undefined;
                 }) => {
                     return new GeneratedDefaultEndpointImplementation({
                         endpoint,
@@ -172,6 +171,7 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                     });
                 };
 
+<<<<<<< HEAD
                 const getStreamingEndpointImplementation = (streamingResponse: StreamingResponse) => {
                     return new GeneratedStreamingEndpointImplementation({
                         packageId,
@@ -186,10 +186,13 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                 };
 
                 if (endpoint.sdkResponse == null) {
+=======
+                if (endpoint.response == null) {
+>>>>>>> main
                     return getDefaultEndpointImplementation({ response: undefined });
                 }
 
-                return SdkResponse._visit<GeneratedEndpointImplementation>(endpoint.sdkResponse, {
+                return HttpResponse._visit<GeneratedEndpointImplementation>(endpoint.response, {
                     fileDownload: (fileDownload) =>
                         visitJavaScriptRuntime<GeneratedEndpointImplementation>(targetRuntime, {
                             node: () =>
@@ -210,33 +213,28 @@ export class GeneratedSdkClientClassImpl implements GeneratedSdkClientClass {
                                     defaultTimeoutInSeconds,
                                     request: getGeneratedEndpointRequest(),
                                     response: getGeneratedEndpointResponse({
-                                        response: SdkResponse.fileDownload(fileDownload),
+                                        response: HttpResponse.fileDownload(fileDownload),
                                     }),
                                     includeSerdeLayer,
                                 }),
                         }),
                     json: (jsonResponse) =>
                         getDefaultEndpointImplementation({
-                            response: SdkResponse.json(jsonResponse),
+                            response: HttpResponse.json(jsonResponse),
                         }),
-                    streaming: getStreamingEndpointImplementation,
-                    maybeStreaming: (maybeStreamingResponse) => {
-                        if (maybeStreamingResponse.nonStreaming.type === "fileDownload") {
-                            throw new Error("Streaming condition is not supported with file download");
-                        }
-                        return new GeneratedMaybeStreamingEndpointImplementation({
+                    streaming: (streamingResponse) =>
+                        new GeneratedStreamingEndpointImplementation({
+                            packageId,
                             endpoint,
-                            response: maybeStreamingResponse,
-                            nonStreamingEndpointImplementation: getDefaultEndpointImplementation({
-                                response: maybeStreamingResponse.nonStreaming,
-                            }),
-                            streamingEndpointImplementation: getStreamingEndpointImplementation(
-                                maybeStreamingResponse.streaming
-                            ),
-                        });
-                    },
+                            generatedSdkClientClass: this,
+                            includeCredentialsOnCrossOriginRequests,
+                            response: streamingResponse,
+                            timeoutInSeconds,
+                            request: getGeneratedEndpointRequest(),
+                            includeSerdeLayer,
+                        }),
                     _unknown: () => {
-                        throw new Error("Unknown SdkResponse type: " + endpoint.sdkResponse?.type);
+                        throw new Error("Unknown Response type: " + endpoint.response?.type);
                     },
                 });
             });

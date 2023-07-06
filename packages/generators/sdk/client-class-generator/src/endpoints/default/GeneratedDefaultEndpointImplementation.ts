@@ -52,19 +52,10 @@ export class GeneratedDefaultEndpointImplementation implements GeneratedEndpoint
         return [];
     }
 
-    public getSignature(
-        context: SdkContext,
-        {
-            requestParameterIntersection,
-            excludeInitializers = false,
-        }: { requestParameterIntersection?: ts.TypeNode; excludeInitializers?: boolean } = {}
-    ): EndpointSignature {
+    public getSignature(context: SdkContext): EndpointSignature {
         return {
             parameters: [
-                ...this.request.getEndpointParameters(context, {
-                    requestParameterIntersection,
-                    excludeInitializers,
-                }),
+                ...this.request.getEndpointParameters(context),
                 getRequestOptionsParameter({
                     requestOptionsReference: this.generatedSdkClientClass.getReferenceToRequestOptions(),
                 }),
