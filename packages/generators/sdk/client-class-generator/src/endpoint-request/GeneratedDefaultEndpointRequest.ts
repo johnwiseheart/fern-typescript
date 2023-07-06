@@ -75,7 +75,6 @@ export class GeneratedDefaultEndpointRequest implements GeneratedEndpointRequest
         if (this.requestParameter != null) {
             parameters.push(this.requestParameter.getParameterDeclaration(context));
         }
-
         return parameters;
     }
 
